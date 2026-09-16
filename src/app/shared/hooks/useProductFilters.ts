@@ -5,8 +5,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import type { ProductCategory, SortOption } from "@service/type";
-import { DEBOUNCE_DELAY } from "@lib/constants";
+import type { ProductCategory, SortOption } from "@/app/service/type";
+import { DEBOUNCE_DELAY } from "@/app/lib/constants";
 
 interface UseProductFiltersReturn {
   searchQuery: string;

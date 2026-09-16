@@ -1,16 +1,16 @@
 import React, { memo } from "react";
 import { CheckCircle, CreditCard, Lock, Shield, Truck } from "lucide-react";
-import { Badge } from "../../components/ui/badge";
-import { Button } from "../../components/ui/button";
+import { Badge } from "@/app/shared/ui/badge";
+import { Button } from "@/app/shared/ui/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from "../../components/ui/card";
-import { Separator } from "../../components/ui/separator";
-import { useCart } from "../../features/cart/CartContext";
-import { formatCurrency } from "../../lib/currency";
+} from "@/app/shared/ui/card";
+import { Separator } from "@/app/shared/ui/separator";
+import { useCart } from "@/app/features/cart/CartContext";
+import { formatCurrency } from "@/app/lib/currency";
 
 interface OrderSummaryProps {
   tax: number;

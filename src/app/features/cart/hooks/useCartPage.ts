@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { useCart } from "../CartContext";
-import { SavedItem } from "@/app/service/type";
+import type { Product, SavedItem } from "@/app/service/type";
 import { toast } from "sonner";
 
 export const useCartPage = () => {
@@ -59,7 +59,7 @@ export const useCartPage = () => {
     setSavedItems((prev) => prev.filter((i) => i.product.id !== id));
   };
 
-  const handleWishlistToggle = (product: any) => {
+  const handleWishlistToggle = (product: Product) => {
     if (isInWishlist(product.id)) {
       removeFromWishlist(product.id);
     } else {

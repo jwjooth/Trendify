@@ -1,31 +1,52 @@
-import { ResponseProps, api } from "@/app/lib/api";
+import { api } from "@/app/lib/api";
 import { PRODUCTS_URL } from "@/app/lib/service-url";
 import { buildQueryString } from "@/app/utils/queryStringBuilder.util";
-import { Product, createProductRequest } from "./type";
+import type { Product, ProductFilters, SortOption } from "../type";
+import type { createProductRequest } from "./type";
 
-export const getAllProducts = async (request: Product): Promise<ResponseProps<Product[]>> => {
-  const url = `${PRODUCTS_URL}${buildQueryString(request)}`;
-  return (await api.get(url)).data;
+export const getAllProducts = async (
+  request?: ProductFilters | Record<string, unknown>,
+  sortBy?: SortOption | string,
+  limit?: number,
+  page?: number,
+): Promise<Product[]> => {
+  const query = buildQueryString({
+    ...(request as Record<string, unknown>),
+    ...(sortBy ? { sort_by: sortBy } : {}),
+    ...(limit !== undefined ? { limit } : {}),
+    ...(page !== undefined ? { page } : {}),
+  });
+  const url = `${PRODUCTS_URL}${query}`;
+  const res = await api.get<Product[]>(url);
+  return res.data ?? [];
 };
 
-export const getProductById = async (id: number): Promise<ResponseProps<Product[]>> => {
+export const getProductById = async (
+  id: number | string,
+): Promise<Product> => {
   const url = `${PRODUCTS_URL}/${id}`;
-  return (await api.get(url)).data;
+  const res = await api.get<Product>(url);
+  return res.data as Product;
 };
 
 export const createProduct = async (
   request: createProductRequest,
-): Promise<ResponseProps<Product[]>> => {
-  return (await api.post(`${PRODUCTS_URL}`, request)).data;
+): Promise<Product> => {
+  const res = await api.post<Product>(`${PRODUCTS_URL}`, request);
+  return res.data as Product;
 };
 
 export const updateProduct = async (
-  id: number,
+  id: number | string,
   request: createProductRequest,
-): Promise<ResponseProps<Product[]>> => {
-  return (await api.put(`${PRODUCTS_URL}/${id}`, request)).data;
+): Promise<Product> => {
+  const res = await api.put<Product>(`${PRODUCTS_URL}/${id}`, request);
+  return res.data as Product;
 };
 
-export const deleteProduct = async (id: number): Promise<ResponseProps<any>> => {
-  return (await api.delete(`${PRODUCTS_URL}/${id}`)).data;
+export const deleteProduct = async (
+  id: number | string,
+): Promise<unknown> => {
+  const res = await api.delete<unknown>(`${PRODUCTS_URL}/${id}`);
+  return res.data;
 };

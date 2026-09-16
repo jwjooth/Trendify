@@ -10,14 +10,7 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config, { isServer }) => {
-    // Custom alias for pages
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '^pages/': 'src/app/pages/',
-    };
-    return config;
-  },
+
 };
 
 module.exports = nextConfig;

@@ -1,16 +1,16 @@
 import React, { memo } from "react";
 import { MapPin } from "lucide-react";
 import { Address } from "@/app/service/type";
-import { CardContent, CardHeader, CardTitle } from "../../components/ui/card";
-import { Input } from "../../components/ui/input";
-import { Label } from "../../components/ui/label";
+import { CardContent, CardHeader, CardTitle } from "@/app/shared/ui/card";
+import { Input } from "@/app/shared/ui/input";
+import { Label } from "@/app/shared/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../components/ui/select";
+} from "@/app/shared/ui/select";
 
 const COUNTRY_OPTIONS = [
   { value: "United States", label: "🇺🇸 United States" },

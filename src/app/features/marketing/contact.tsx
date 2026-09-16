@@ -45,7 +45,7 @@ const ContactPage: NextPage = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-muted-foreground">
-            We'd love to hear from you. Get in touch with our team.
+            We&apos;d love to hear from you. Get in touch with our team.
           </p>
         </div>
 
@@ -168,7 +168,7 @@ const ContactPage: NextPage = () => {
                 What are your business hours?
               </h3>
               <p className="text-muted-foreground">
-                We're available 24/7 for your convenience. Our support team
+                We&apos;re available 24/7 for your convenience. Our support team
                 responds to inquiries within 24 hours.
               </p>
             </div>
@@ -182,7 +182,7 @@ const ContactPage: NextPage = () => {
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">What's your return policy?</h3>
+              <h3 className="font-semibold mb-2">What&apos;s your return policy?</h3>
               <p className="text-muted-foreground">
                 We offer a 30-day money-back guarantee on all purchases. No
                 questions asked.

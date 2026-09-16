@@ -169,7 +169,11 @@ class ErrorLogger {
     }
   }
   private reportToExternalService(errorLog: ErrorLog): void {
-    
+    // External error reporting hook (e.g. Sentry). Log in development so
+    // the parameter is used while keeping production a no-op.
+    if (this.isDevelopment) {
+      console.debug("[reportToExternalService]", errorLog.id);
+    }
   }
 }
 

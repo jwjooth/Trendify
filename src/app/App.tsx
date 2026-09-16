@@ -1,4 +1,4 @@
-import { RouterProvider } from "react-router";
+import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { CartProvider } from "./features/cart/CartContext";
 import { ErrorBoundary } from "./shared/layout/ErrorBoundary";

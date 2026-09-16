@@ -100,7 +100,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
 
       toast.success("Message sent! We'll get back to you within 24 hours.");
       setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);

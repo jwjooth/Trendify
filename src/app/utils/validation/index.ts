@@ -273,7 +273,7 @@ export const validateString = (
     return { isValid: false, errors };
   }
 
-  let text = options.trim ? value.trim() : value;
+  const text = options.trim ? value.trim() : value;
 
   if (options.minLength && text.length < options.minLength) {
     errors.push(`Value must be at least ${options.minLength} characters`);

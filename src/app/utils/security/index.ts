@@ -129,7 +129,7 @@ export const XSSProtection = {
     if (typeof input !== "string") {
       return "";
     }
-    let sanitized = input
+    const sanitized = input
       .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
       .replace(/on\w+\s*=/gi, "_disabled_")
       .replace(/<iframe/gi, "&lt;iframe")

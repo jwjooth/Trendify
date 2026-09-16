@@ -39,7 +39,7 @@ export const useProducts = (
 
       setProducts(data);
     } catch (err) {
-      if ((err as any)?.name === "AbortError") return;
+      if (err instanceof Error && err.name === "AbortError") return;
 
       setError(err instanceof Error ? err.message : "Failed to fetch products");
     } finally {
@@ -89,7 +89,7 @@ export const useProduct = (productId: string) => {
       const data = await getProductById(productId);
       setProduct(data);
     } catch (err) {
-      if ((err as any)?.name === "AbortError") return;
+      if (err instanceof Error && err.name === "AbortError") return;
 
       setError(err instanceof Error ? err.message : "Failed to fetch product");
       setProduct(null);
@@ -145,6 +145,9 @@ export const useProductsByCategory = (
   sortBy?: SortOption,
   limit?: number,
 ) => {
-  const filters = useMemo(() => ({ category: category as any }), [category]);
+  const filters = useMemo(
+    () => ({ category: category as Product["category"] }),
+    [category],
+  );
   return useProducts(filters, sortBy, limit);
 };

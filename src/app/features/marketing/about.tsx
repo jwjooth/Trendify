@@ -26,7 +26,7 @@ const AboutPage: NextPage = () => {
               service.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              We're committed to providing a curated selection of premium items
+              We&apos;re committed to providing a curated selection of premium items
               across multiple categories, all while maintaining the highest
               standards of quality and customer satisfaction.
             </p>
@@ -103,7 +103,7 @@ const AboutPage: NextPage = () => {
               that defined us from the beginning.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Whether you're looking for electronics, fashion, home goods, or
+              Whether you&apos;re looking for electronics, fashion, home goods, or
               anything in between, Trendify is here to help you find exactly
               what you need.
             </p>
