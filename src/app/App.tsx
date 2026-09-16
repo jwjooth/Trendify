@@ -2,7 +2,7 @@ import { RouterProvider } from "react-router";
 import { HelmetProvider } from "react-helmet-async";
 import { CartProvider } from "./features/cart/CartContext";
 import { ErrorBoundary } from "./shared/layout/ErrorBoundary";
-import { router } from "./routes";
+import { router } from "./router";
 
 export default function App() {
   return (

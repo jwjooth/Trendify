@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Store, Users, Award, Star, TrendingUp, Shield } from "lucide-react";
-import { getTestimonials } from "../../service";
-import { Testimonial as TestimonialType } from "../../service/type";
+import { getTestimonials } from "@/app/service";
+import { Testimonial as TestimonialType } from "@/app/service/type";
 import { Card, CardContent } from "../../shared/ui/card";
 import { Badge } from "../../shared/ui/badge";
 import { Button } from "../../shared/ui/button";

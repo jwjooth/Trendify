@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ShoppingCart, Star, Eye, Heart } from "lucide-react";
-import { Product } from "../../service/type";
+import { Product } from "@/app/service/type";
 import { formatCurrency } from "../../lib/currency";
 import { useCart } from "../../features/cart/CartContext";
 import { Button } from "../ui/button";

@@ -3,14 +3,14 @@ import { useSearchParams } from "next/navigation";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { ProductCard } from "../../shared/layout/ProductCard";
 import { useProducts } from "../../shared/hooks/useProducts";
-import { getCategories } from "../../service";
+import { getCategories } from "@/app/service";
 import {
   Product,
   ProductCategory,
   ProductFilters,
   SortOption,
   Category,
-} from "../../service/type";
+} from "@/app/service/type";
 import { Input } from "../../shared/ui/input";
 import {
   Select,

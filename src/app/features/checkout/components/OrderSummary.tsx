@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 import { Separator } from "../../components/ui/separator";
-import { useCart } from "../../modules/cart/CartContext";
+import { useCart } from "../../features/cart/CartContext";
 import { formatCurrency } from "../../lib/currency";
 
 interface OrderSummaryProps {

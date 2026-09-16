@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { Lock, Shield } from "lucide-react";
-import { PaymentMethod } from "../../service/type";
+import { PaymentMethod } from "@/app/service/type";
 import { CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";

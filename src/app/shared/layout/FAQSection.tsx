@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { HelpCircle, ChevronDown } from "lucide-react";
-import { getFaqs } from "../../service";
-import { FAQ } from "../../service/type";
+import { getFaqs } from "@/app/service";
+import { FAQ } from "@/app/service/type";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {
   Collapsible,
