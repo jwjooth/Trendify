@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { Product, ProductFilters, SortOption } from "../../service/type";
-import { getAllProducts, getProductById } from "../../service";
+import { Product, ProductFilters, SortOption } from "@/app/service/type";
+import { getAllProducts, getProductById } from "@/app/service";
 
 export const useProducts = (
   filters?: ProductFilters,

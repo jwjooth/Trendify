@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { MapPin } from "lucide-react";
-import { Address } from "../../service/type";
+import { Address } from "@/app/service/type";
 import { CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
