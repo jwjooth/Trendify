@@ -9,6 +9,7 @@ interface UseOrderSubmitOptions {
 }
   
 async function submitOrder(_payload: Omit<OrderPayload, "orderId">): Promise<string> {
+  void _payload;
   await new Promise<void>((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < 0.01) {
@@ -34,7 +35,7 @@ function validateAddress(address: Address, prefix: string): CheckoutError | null
   for (const field of required) {
     if (!address[field]?.trim()) {
       return {
-        field: `${prefix}.${field}`,
+        field: `${prefix}.${String(field)}`,
         message: `Please fill in all required ${prefix} fields`,
       };
     }

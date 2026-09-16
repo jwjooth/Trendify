@@ -59,7 +59,7 @@ const ProductDetailPage: NextPage = () => {
   };
 
   const incrementQuantity = () => {
-    if (quantity < product.stock) {
+    if (quantity < (product.stock ?? 0)) {
       setQuantity(quantity + 1);
     }
   };
@@ -99,7 +99,7 @@ const ProductDetailPage: NextPage = () => {
                   <Star
                     key={i}
                     className={`w-5 h-5 ${
-                      i < Math.floor(product.rating)
+                      i < Math.floor(product.rating ?? 0)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
                     }`}
@@ -144,7 +144,7 @@ const ProductDetailPage: NextPage = () => {
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-2">
               <span className="font-semibold">Stock:</span>
-              <Badge variant={product.stock > 20 ? "default" : "destructive"}>
+              <Badge variant={(product.stock ?? 0) > 20 ? "default" : "destructive"}>
                 {product.stock} available
               </Badge>
             </div>
@@ -166,7 +166,7 @@ const ProductDetailPage: NextPage = () => {
                 <button
                   onClick={incrementQuantity}
                   className="px-4 py-2 hover:bg-muted transition-colors"
-                  disabled={quantity >= product.stock}
+                  disabled={quantity >= (product.stock ?? 0)}
                 >
                   +
                 </button>

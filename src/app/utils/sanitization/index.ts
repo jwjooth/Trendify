@@ -1,4 +1,4 @@
-import DOMPurify from "dompurify";
+import DOMPurify, { type Config } from "dompurify";
 
 /**
  * Sanitizes HTML input to prevent XSS attacks
@@ -6,7 +6,7 @@ import DOMPurify from "dompurify";
  * @param options - Additional DOMPurify options
  * @returns Sanitized HTML string
  */
-export const sanitizeHtml = (dirty: string, options?: any): string => {
+export const sanitizeHtml = (dirty: string, options?: Config): string => {
   const sanitized = DOMPurify.sanitize(dirty, {
     ALLOWED_TAGS: [
       "p",
@@ -28,7 +28,7 @@ export const sanitizeHtml = (dirty: string, options?: any): string => {
     ALLOWED_ATTR: [],
     ...options,
   });
-  return typeof sanitized === "string" ? sanitized : sanitized.toString();
+  return String(sanitized);
 };
 
 /**
@@ -94,7 +94,7 @@ export const sanitizeUrl = (url: string): string => {
  * @returns Sanitized number
  */
 export const sanitizeNumber = (
-  input: any,
+  input: unknown,
   defaultValue: number = 0,
 ): number => {
   const num = Number(input);

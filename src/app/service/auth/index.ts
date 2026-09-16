@@ -1,11 +1,13 @@
-import { api, ResponseProps } from "@/app/lib/api";
+import { api } from "@/app/lib/api";
 import { LOGIN_URL, REGISTER_URL } from "@/app/lib/service-url";
-import { Auth } from "./type";
+import type { Auth } from "./type";
 
-export const login = async (request: Auth): Promise<ResponseProps<any>> => {
-  return (await api.post(`${LOGIN_URL}`, request)).data;
+export const login = async (request: Auth): Promise<unknown> => {
+  const res = await api.post<unknown>(`${LOGIN_URL}`, request);
+  return res.data;
 };
 
-export const register = async (request: Auth): Promise<ResponseProps<any>> => {
-  return (await api.post(`${REGISTER_URL}`, request)).data;
+export const register = async (request: Auth): Promise<unknown> => {
+  const res = await api.post<unknown>(`${REGISTER_URL}`, request);
+  return res.data;
 };

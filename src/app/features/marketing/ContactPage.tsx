@@ -46,7 +46,7 @@ export const ContactPage: React.FC = () => {
                 Contact Us
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-                Have questions? Need help? We're here for you!
+                Have questions? Need help? We&apos;re here for you!
               </p>
             </header>
 

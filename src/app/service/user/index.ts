@@ -1,19 +1,26 @@
-import { api, ResponseProps } from "@/app/lib/api";
+import { api } from "@/app/lib/api";
 import { USERS_URL } from "@/app/lib/service-url";
 import { buildQueryString } from "@/app/utils/queryStringBuilder.util";
-import { putUserRequest, User } from "./type";
+import type { putUserRequest, User } from "./type";
 
-export const getAllUsers = async (request: User): Promise<ResponseProps<User[]>> => {
-  return (await api.get(`${USERS_URL}${buildQueryString(request)}`)).data;
+export const getAllUsers = async (
+  request?: User | Record<string, unknown>,
+): Promise<User[]> => {
+  const res = await api.get<User[]>(
+    `${USERS_URL}${buildQueryString(request as Record<string, unknown>)}`,
+  );
+  return res.data ?? [];
 };
 
 export const putUser = async (
-  id: number,
+  id: number | string,
   request: putUserRequest,
-): Promise<ResponseProps<User[]>> => {
-  return (await api.put(`${USERS_URL}/${id}`, request)).data;
+): Promise<User> => {
+  const res = await api.put<User>(`${USERS_URL}/${id}`, request);
+  return res.data as User;
 };
 
-export const deleteUser = async (id: number): Promise<ResponseProps<any>> => {
-  return (await api.delete(`${USERS_URL}/${id}`)).data;
+export const deleteUser = async (id: number | string): Promise<unknown> => {
+  const res = await api.delete<unknown>(`${USERS_URL}/${id}`);
+  return res.data;
 };

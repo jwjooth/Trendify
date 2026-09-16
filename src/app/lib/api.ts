@@ -203,3 +203,7 @@ class ApiService {
 }
 
 export const apiService = new ApiService();
+
+/** Back-compat aliases — older service modules import `{ api, ResponseProps }`. */
+export const api = apiService;
+export type ResponseProps<T = unknown> = ApiResponse<T>;

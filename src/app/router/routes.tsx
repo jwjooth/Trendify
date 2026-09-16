@@ -1,4 +1,5 @@
-import { RouteObject } from "react-router-dom";
+import type { RouteObject } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Layout } from "../shared/layout/Layout";
 import { CartPage } from "../features/cart/index.page";
 import { CheckoutPage } from "../features/checkout/CheckoutPage";
@@ -13,7 +14,11 @@ import { OrderConfirmationPage } from "../shared/layout/OrderConfirmationPage";
 export const routes: RouteObject[] = [
   {
     path: "/",
-    element: <Layout children />,
+    element: (
+      <Layout>
+        <Outlet />
+      </Layout>
+    ),
     children: [
       { index: true, element: <ProductsPage /> },
 

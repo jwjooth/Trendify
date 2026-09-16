@@ -106,7 +106,7 @@ export const AboutPage: React.FC = () => {
                 </p>
                 <p>
                   Through continuous innovation and unwavering commitment to our
-                  customers, we're building the future of e-commerce.
+                  customers, we&apos;re building the future of e-commerce.
                 </p>
               </div>
             </div>
@@ -248,7 +248,7 @@ export const AboutPage: React.FC = () => {
                         ))}
                       </div>
                       <p className="text-muted-foreground italic">
-                        "{testimonial.content}"
+                        &quot;{testimonial.content}&quot;
                       </p>
                     </CardContent>
                   </Card>

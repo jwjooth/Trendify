@@ -25,6 +25,8 @@
 
     "forceConsistentCasingInFileNames": true,
 
+    "types": ["vitest/globals", "@testing-library/jest-dom", "node"],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -32,6 +34,6 @@
     "plugins": [{ "name": "next" }]
   },
 
-  "include": ["next-env.d.ts", "src/**/*", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "src/**/*", "pages/**/*", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

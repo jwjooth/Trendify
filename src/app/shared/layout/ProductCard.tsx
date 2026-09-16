@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { ShoppingCart, Star, Eye, Heart } from "lucide-react";
 import { Product } from "@/app/service/type";
@@ -101,7 +100,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 <h3 className="font-semibold line-clamp-2 flex-1 group-hover:text-primary transition-colors">
                   {product.name}
                 </h3>
-                {product.stock < 20 && product.stock > 0 && (
+                {(product.stock ?? 0) < 20 && (product.stock ?? 0) > 0 && (
                   <Badge variant="destructive" className="text-xs">
                     Low Stock
                   </Badge>
@@ -123,7 +122,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     <Star
                       key={i}
                       className={`w-3 h-3 ${
-                        i < Math.floor(product.rating)
+                        i < Math.floor(product.rating ?? 0)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
                       }`}
@@ -194,7 +193,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     <Star
                       key={i}
                       className={`w-4 h-4 ${
-                        i < Math.floor(product.rating)
+                        i < Math.floor(product.rating ?? 0)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
                       }`}
@@ -220,7 +219,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                   <span className="text-muted-foreground">Stock:</span>
                   <span
                     className={
-                      product.stock < 20 ? "text-orange-600 font-medium" : ""
+                      (product.stock ?? 0) < 20 ? "text-orange-600 font-medium" : ""
                     }
                   >
                     {product.stock} available

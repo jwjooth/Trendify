@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react";
 import { Search } from "lucide-react";
-import type { ProductCategory, SortOption } from "@service/type";
+import type { ProductCategory, SortOption } from "@/app/service/type";
 import { Input } from "@/app/shared/ui/input";
 import {
   Select,
@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/shared/ui/select";
-import { SORT_OPTIONS } from "@lib/constants";
+import { SORT_OPTIONS } from "@/app/lib/constants";
 
 interface CategoryOption {
   value: ProductCategory;
@@ -113,11 +113,13 @@ export const ProductFiltersBar = memo<ProductFiltersBarProps>(
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent>
-              {Object.entries(SORT_OPTIONS).map(([value, label]) => (
-                <SelectItem key={value} value={value}>
-                  {label}
-                </SelectItem>
-              ))}
+              {(Object.entries(SORT_OPTIONS) as [string, string][]).map(
+                ([value, label]) => (
+                  <SelectItem key={value} value={value}>
+                    {label}
+                  </SelectItem>
+                ),
+              )}
             </SelectContent>
           </Select>
         </div>

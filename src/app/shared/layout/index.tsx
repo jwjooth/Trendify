@@ -7,7 +7,7 @@ import { ProductGridSkeleton } from "@/app/shared/layout/ProductGridSkeleton";
 import { useProducts } from "@/app/shared/hooks/useProducts";
 import { useProductFilters } from "@/app/shared/hooks/useProductFilters";
 import { useCategories } from "@/app/shared/hooks/useCategories";
-import type { Product } from "@service/type";
+import type { Product } from "@/app/service/type";
 import { Button } from "@/app/shared/ui/button";
 import { Badge } from "@/app/shared/ui/badge";
 

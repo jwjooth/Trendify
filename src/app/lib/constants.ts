@@ -3,7 +3,7 @@
  * Centralized product categories with proper typing
  */
 
-import type { ProductCategory } from "@service/type";
+import type { ProductCategory } from "@/app/service/type";
 
 export const PRODUCT_CATEGORIES: Record<ProductCategory, string> = {
   electronics: "Electronics",

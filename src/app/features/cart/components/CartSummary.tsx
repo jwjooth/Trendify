@@ -1,6 +1,11 @@
 import { calculateTax, calculateShipping, calculateTotal, formatCurrency } from "@/app/lib/currency";
+import type { Cart } from "@/app/service/type";
 
-export const CartSummary = ({ cart }: any) => {
+interface CartSummaryProps {
+  cart: Cart;
+}
+
+export const CartSummary = ({ cart }: CartSummaryProps) => {
   const tax = calculateTax(cart.subtotal);
   const shipping = calculateShipping(cart.subtotal);
   const total = calculateTotal(cart.subtotal, tax, shipping);

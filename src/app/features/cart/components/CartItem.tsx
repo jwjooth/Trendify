@@ -1,8 +1,20 @@
 import { Minus, Plus, Trash2, Save } from "lucide-react";
 import { formatCurrency } from "@/app/lib/currency";
-import { Button } from "react-day-picker";
+import { Button } from "@/app/shared/ui/button";
+import type { CartItem as CartItemType } from "@/app/service/type";
 
-export const CartItem = ({ item, handlers }: any) => {
+interface CartItemHandlers {
+  handleUpdateQuantity: (id: string, qty: number, stock: number) => void;
+  handleRemoveItem: (id: string, name: string) => void;
+  handleSaveForLater: (id: string) => void;
+}
+
+interface CartItemProps {
+  item: CartItemType;
+  handlers: CartItemHandlers;
+}
+
+export const CartItem = ({ item, handlers }: CartItemProps) => {
   const { handleUpdateQuantity, handleRemoveItem, handleSaveForLater } =
     handlers;
 
@@ -18,7 +30,7 @@ export const CartItem = ({ item, handlers }: any) => {
               handleUpdateQuantity(
                 item.product.id,
                 item.quantity - 1,
-                item.product.stock,
+                item.product.stock ?? 0,
               )
             }
           >
@@ -32,7 +44,7 @@ export const CartItem = ({ item, handlers }: any) => {
               handleUpdateQuantity(
                 item.product.id,
                 item.quantity + 1,
-                item.product.stock,
+                item.product.stock ?? 0,
               )
             }
           >
