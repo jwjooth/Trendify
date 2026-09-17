@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     triggers {
         pollSCM('* * * * *')
     }
@@ -9,19 +10,21 @@ pipeline {
     }
 
     stages {
-        stage('Checkout'){
-            echo '📥 Checking out code from Github...'
-            checkout scm
+        stage('Checkout') {
+            steps {
+                echo '📥 Checking out code from Github...'
+                checkout scm
+            }
         }
 
-        stage('Install Dependencies'){
+        stage('Install Dependencies') {
             steps {
                 echo '📦 Installing dependencies with Bun...'
                 sh "${env.BUN_PATH} install"
             }
         }
 
-        stage('Lint & Test'){
+        stage('Lint & Test') {
             steps {
                 echo '🧪 Running linter and tests...'
                 sh "${env.BUN_PATH} run lint"
@@ -29,14 +32,13 @@ pipeline {
             }
         }
 
-        stage('Build Production'){
+        stage('Build Production') {
             steps {
                 echo '🏗️ Building Production App...'
                 sh "${env.BUN_PATH} run build"
             }
             post {
                 always {
-                    // save the dist folder as an artifact
                     archiveArtifacts artifacts: 'dist/**', fingerprint: true
                 }
             }
@@ -46,7 +48,8 @@ pipeline {
     post {
         failure {
             echo '💥 Pipeline failed! Check console output for details.'
-        } success {
+        }
+        success {
             echo '✨ Pipeline completed successfully!'
         }
     }
