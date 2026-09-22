@@ -1,110 +1,56 @@
-# Trendify - Modern E-Commerce System
+# Trendify — Modern E-Commerce
 
-A stunning, animated e-commerce platform that brings fashion to life. Built with cutting-edge technologies for a seamless shopping experience, featuring smooth animations, beautiful UI components, and modern design principles.
+![Next.js](https://img.shields.io/badge/Next.js-15-black) ![React](https://img.shields.io/badge/React-18-61dafb) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6) ![Tailwind](https://img.shields.io/badge/Tailwind-4-38bdf8) ![Vitest](https://img.shields.io/badge/Vitest-tested-729b1b)
 
-**Designed with ❤️ by [Jordan Theovandy](https://github.com/jwjooth)**
+Fast, responsive fashion storefront. Browse → cart → checkout → confirmation, with search, filters, wishlist, and reviews.
+
+> By [Jordan Theovandy](https://github.com/jwjooth)
 
 ## ✨ Features
 
-- **🎨 Beautiful Design**: Crafted with Figma for pixel-perfect UI/UX
-- **🚀 Smooth Animations**: Fluid transitions and micro-interactions throughout
-- **📱 Responsive**: Optimized for desktop, tablet, and mobile devices
-- **🛒 Full E-Commerce Flow**: Product browsing, cart management, checkout, and order confirmation
-- **🔍 Advanced Search & Filtering**: Find products effortlessly
-- **💳 Secure Checkout**: Integrated payment processing simulation
-- **🌟 Modern UI Components**: Built with shadcn/ui and Tailwind CSS
-- **⚡ Fast Performance**: Powered by Vite for lightning-fast development and builds
-- **🔒 Type-Safe**: Full TypeScript implementation for reliability
-- **🎭 Interactive Elements**: Hover effects, modals, and dynamic content
+| Area | What you get |
+|------|--------------|
+| 🛒 Shop flow | Catalog, product detail, cart, checkout, order confirmation |
+| 🔍 Discovery | Search, category filter, recommendations |
+| 💖 Engagement | Wishlist, reviews, testimonials, FAQs |
+| 📱 UX | Responsive, animated (Motion), toasts (Sonner), dark mode (`next-themes`) |
 
-## 🛠️ Tech Stack
+## 🛠️ Stack
 
-- **Frontend**: React 18.3.1 with TypeScript
-- **Build Tool**: Vite 6.3.5
-- **Styling**: Tailwind CSS with custom animations
-- **UI Components**: shadcn/ui component library
-- **API**: MockAPI.io for backend simulation
-- **Design**: Figma for UI/UX design
-- **Testing**: Vitest with jsdom
-- **Icons**: Lucide React
-- **State Management**: React Context API
-- **Routing**: React Router v6
+| Layer | Choice |
+|-------|--------|
+| Framework | Next.js 15 (Pages Router) + React 18 + TypeScript |
+| Styling / UI | Tailwind CSS 4, shadcn/ui + Radix, Lucide icons |
+| State | React Context (`CartContext`) |
+| Data | MockAPI.io via `src/app/lib/service-url.ts` |
+| Test | Vitest + jsdom + Testing Library |
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/jordantheovandy/trendify-ecommerce.git
-   cd trendify-ecommerce-system
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:5173` to see Trendify in action!
-
-### Build for Production
+## 🚀 Run
 
 ```bash
-npm run build
+npm install
+cp .env.example .env.local   # optional — app falls back to public MockAPI
+npm run dev                  # → http://localhost:3000
 ```
 
-### Run Tests
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` / `build` / `start` | Dev / production build / serve |
+| `npm run lint` / `typecheck` | `eslint .` / `tsc --noEmit` |
+| `npm run test` | `vitest run` (single: `vitest run <path>`) |
 
-```bash
-npm run test
+## 🧩 Structure
+
+```
+src/app/features/{products,cart,checkout,marketing}/  # routes + domain logic
+src/app/shared/{layout,ui,hooks}/                     # shell, shadcn/Radix, hooks
+src/app/service/ + lib/service-url.ts                 # API clients + endpoints
+pages/                                                # auto-generated, gitignored (see setup-pages.js)
 ```
 
-## 🎨 Design & Development
-
-This project was meticulously designed in Figma and brought to life with modern web technologies. The focus is on creating a visually stunning experience with:
-
-- **Smooth Animations**: CSS transitions, transforms, and keyframe animations
-- **Interactive Components**: Hover states, click animations, and loading states
-- **Modern Aesthetics**: Clean typography, consistent spacing, and vibrant colors
-- **Accessibility**: WCAG compliant design with proper contrast and keyboard navigation
-
-## 📊 API Integration
-
-Powered by MockAPI.io for realistic backend simulation:
-
-- Product catalog management
-- Cart persistence
-- Order processing
-- User authentication (simulated)
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Development Guide](DEVELOPMENT_GUIDE.md) for detailed setup and contribution guidelines.
+> ⚠️ Don't edit `pages/` by hand — edit `src/app/**`, it gets re-exported.
+> Env: `NEXT_PUBLIC_*` only. No key? It still runs on built-in MockAPI fallbacks.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Original design inspiration from Figma community templates
-- Built with love by Jordan Theovandy
-- Thanks to the open-source community for amazing tools and libraries
-
----
-
-**Experience the future of online shopping with Trendify!** 🛍️✨
+MIT
