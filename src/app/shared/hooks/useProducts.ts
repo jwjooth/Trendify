@@ -49,9 +49,12 @@ export const useProducts = (
   }, [debouncedFilters, sortBy, limit, page]);
 
   useEffect(() => {
-    fetchProducts();
+    const timer = setTimeout(() => {
+      fetchProducts();
+    }, 0);
 
     return () => {
+      clearTimeout(timer);
       abortRef.current?.abort();
     };
   }, [fetchProducts]);
@@ -100,9 +103,12 @@ export const useProduct = (productId: string) => {
   }, [productId]);
 
   useEffect(() => {
-    fetchProduct();
+    const timer = setTimeout(() => {
+      fetchProduct();
+    }, 0);
 
     return () => {
+      clearTimeout(timer);
       abortRef.current?.abort();
     };
   }, [fetchProduct]);

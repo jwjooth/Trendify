@@ -23,11 +23,14 @@ const PAYMENT_OPTIONS = [
 
 const CARD_PAYMENT_METHODS: PaymentMethod[] = ["credit_card", "debit_card"];
 
-const PAYMENT_INFO_MAP: Partial<Record<PaymentMethod, { bg: string; text: string; message: string }>> = {
+const PAYMENT_INFO_MAP: Partial<
+  Record<PaymentMethod, { bg: string; text: string; message: string }>
+> = {
   paypal: {
     bg: "bg-blue-50",
     text: "text-blue-700",
-    message: "You will be redirected to PayPal to complete your payment securely.",
+    message:
+      "You will be redirected to PayPal to complete your payment securely.",
   },
   apple_pay: {
     bg: "bg-gray-50",
@@ -68,7 +71,9 @@ export const PaymentForm: React.FC<PaymentFormProps> = memo(
         <CardContent className="space-y-4">
           <Select
             value={paymentMethod}
-            onValueChange={(value) => onPaymentMethodChange(value as PaymentMethod)}
+            onValueChange={(value) =>
+              onPaymentMethodChange(value as PaymentMethod)
+            }
           >
             <SelectTrigger>
               <SelectValue />
@@ -97,7 +102,12 @@ export const PaymentForm: React.FC<PaymentFormProps> = memo(
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="expiry">Expiry Date *</Label>
-                  <Input id="expiry" placeholder="MM/YY" maxLength={5} required />
+                  <Input
+                    id="expiry"
+                    placeholder="MM/YY"
+                    maxLength={5}
+                    required
+                  />
                 </div>
                 <div>
                   <Label htmlFor="cvv">CVV *</Label>
@@ -112,7 +122,10 @@ export const PaymentForm: React.FC<PaymentFormProps> = memo(
 
               <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 p-3 rounded-lg">
                 <Shield className="w-4 h-4 flex-shrink-0" />
-                <span>Your payment information is secure and encrypted with 256-bit SSL</span>
+                <span>
+                  Your payment information is secure and encrypted with 256-bit
+                  SSL
+                </span>
               </div>
             </div>
           )}
@@ -127,7 +140,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = memo(
         </CardContent>
       </>
     );
-  }
+  },
 );
 
 PaymentForm.displayName = "PaymentForm";

@@ -2,9 +2,7 @@
  * Builds a URL query string from a plain object.
  * Skips undefined / null / empty-string values.
  */
-export function buildQueryString(
-  params?: Record<string, unknown>,
-): string {
+export function buildQueryString(params?: Record<string, unknown>): string {
   if (!params) return "";
   const search = new URLSearchParams();
   for (const [key, value] of Object.entries(params)) {

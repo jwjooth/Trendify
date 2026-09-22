@@ -19,7 +19,7 @@ export const DEFAULT_CATEGORIES = Object.entries(PRODUCT_CATEGORIES).map(
   ([value, label]) => ({
     value: value as ProductCategory,
     label,
-  })
+  }),
 );
 
 export const SORT_OPTIONS = {

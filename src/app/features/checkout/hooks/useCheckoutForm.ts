@@ -22,7 +22,7 @@ export function useCheckoutForm() {
           : prev.billingAddress,
       }));
     },
-    []
+    [],
   );
 
   const updateBillingField = useCallback(
@@ -32,7 +32,7 @@ export function useCheckoutForm() {
         billingAddress: { ...prev.billingAddress, [field]: value },
       }));
     },
-    []
+    [],
   );
 
   const toggleSameAsShipping = useCallback((checked: boolean) => {

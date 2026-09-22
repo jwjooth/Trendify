@@ -8,22 +8,22 @@ Fast, responsive fashion storefront. Browse → cart → checkout → confirmati
 
 ## ✨ Features
 
-| Area | What you get |
-|------|--------------|
-| 🛒 Shop flow | Catalog, product detail, cart, checkout, order confirmation |
-| 🔍 Discovery | Search, category filter, recommendations |
-| 💖 Engagement | Wishlist, reviews, testimonials, FAQs |
-| 📱 UX | Responsive, animated (Motion), toasts (Sonner), dark mode (`next-themes`) |
+| Area          | What you get                                                              |
+| ------------- | ------------------------------------------------------------------------- |
+| 🛒 Shop flow  | Catalog, product detail, cart, checkout, order confirmation               |
+| 🔍 Discovery  | Search, category filter, recommendations                                  |
+| 💖 Engagement | Wishlist, reviews, testimonials, FAQs                                     |
+| 📱 UX         | Responsive, animated (Motion), toasts (Sonner), dark mode (`next-themes`) |
 
 ## 🛠️ Stack
 
-| Layer | Choice |
-|-------|--------|
-| Framework | Next.js 15 (Pages Router) + React 18 + TypeScript |
-| Styling / UI | Tailwind CSS 4, shadcn/ui + Radix, Lucide icons |
-| State | React Context (`CartContext`) |
-| Data | MockAPI.io via `src/app/lib/service-url.ts` |
-| Test | Vitest + jsdom + Testing Library |
+| Layer        | Choice                                            |
+| ------------ | ------------------------------------------------- |
+| Framework    | Next.js 15 (Pages Router) + React 18 + TypeScript |
+| Styling / UI | Tailwind CSS 4, shadcn/ui + Radix, Lucide icons   |
+| State        | React Context (`CartContext`)                     |
+| Data         | MockAPI.io via `src/app/lib/service-url.ts`       |
+| Test         | Vitest + jsdom + Testing Library                  |
 
 ## 🚀 Run
 
@@ -33,11 +33,11 @@ cp .env.example .env.local   # optional — app falls back to public MockAPI
 npm run dev                  # → http://localhost:3000
 ```
 
-| Command | Purpose |
-|---------|---------|
-| `npm run dev` / `build` / `start` | Dev / production build / serve |
-| `npm run lint` / `typecheck` | `eslint .` / `tsc --noEmit` |
-| `npm run test` | `vitest run` (single: `vitest run <path>`) |
+| Command                           | Purpose                                    |
+| --------------------------------- | ------------------------------------------ |
+| `npm run dev` / `build` / `start` | Dev / production build / serve             |
+| `npm run lint` / `typecheck`      | `eslint .` / `tsc --noEmit`                |
+| `npm run test`                    | `vitest run` (single: `vitest run <path>`) |
 
 ## 🧩 Structure
 

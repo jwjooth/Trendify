@@ -1,14 +1,20 @@
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
 import { Address } from "@/app/service/type";
-import { CheckoutFormState, CheckoutError, OrderPayload } from "../type/checkout";
+import {
+  CheckoutFormState,
+  CheckoutError,
+  OrderPayload,
+} from "../type/checkout";
 
 interface UseOrderSubmitOptions {
   total: number;
   onSuccess: (payload: OrderPayload) => void;
 }
-  
-async function submitOrder(_payload: Omit<OrderPayload, "orderId">): Promise<string> {
+
+async function submitOrder(
+  _payload: Omit<OrderPayload, "orderId">,
+): Promise<string> {
   void _payload;
   await new Promise<void>((resolve, reject) => {
     setTimeout(() => {
@@ -23,7 +29,10 @@ async function submitOrder(_payload: Omit<OrderPayload, "orderId">): Promise<str
   return `ORD-${Date.now()}`;
 }
 
-function validateAddress(address: Address, prefix: string): CheckoutError | null {
+function validateAddress(
+  address: Address,
+  prefix: string,
+): CheckoutError | null {
   const required: (keyof Address)[] = [
     "fullName",
     "addressLine1",
@@ -51,9 +60,7 @@ function validateAddress(address: Address, prefix: string): CheckoutError | null
   return null;
 }
 
-function validateForm(
-  formState: CheckoutFormState
-): CheckoutError | null {
+function validateForm(formState: CheckoutFormState): CheckoutError | null {
   const shippingError = validateAddress(formState.shippingAddress, "shipping");
   if (shippingError) return shippingError;
 
@@ -112,7 +119,7 @@ export function useOrderSubmit({ total, onSuccess }: UseOrderSubmitOptions) {
         setIsProcessing(false);
       }
     },
-    [total, onSuccess]
+    [total, onSuccess],
   );
 
   return { isProcessing, handleSubmit };

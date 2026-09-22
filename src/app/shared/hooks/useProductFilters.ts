@@ -31,7 +31,7 @@ export const useProductFilters = (): UseProductFiltersReturn => {
   >(undefined);
   const [sortBy, setSortByState] = useState<SortOption>("newest");
   const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(
-    null
+    null,
   );
 
   // Initialize from URL query parameters
@@ -40,26 +40,26 @@ export const useProductFilters = (): UseProductFiltersReturn => {
 
     const { search, category, sort } = router.query;
 
-    if (search && typeof search === "string") {
-      setSearchQueryState(search);
-    }
+    const timer = setTimeout(() => {
+      if (search && typeof search === "string") {
+        setSearchQueryState(search);
+      }
 
-    if (category && typeof category === "string") {
-      setSelectedCategoryState(category as ProductCategory);
-    }
+      if (category && typeof category === "string") {
+        setSelectedCategoryState(category as ProductCategory);
+      }
 
-    if (sort && typeof sort === "string") {
-      setSortByState(sort as SortOption);
-    }
+      if (sort && typeof sort === "string") {
+        setSortByState(sort as SortOption);
+      }
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [router.isReady, router.query]);
 
   // Sync filters to URL with debouncing for search
   const syncToUrl = useCallback(
-    (
-      search: string,
-      cat: ProductCategory | undefined,
-      sort: SortOption
-    ) => {
+    (search: string, cat: ProductCategory | undefined, sort: SortOption) => {
       const params = new URLSearchParams();
 
       if (search) params.set("search", search);
@@ -73,10 +73,10 @@ export const useProductFilters = (): UseProductFiltersReturn => {
           query: queryString ? `?${queryString}` : "",
         },
         undefined,
-        { shallow: true }
+        { shallow: true },
       );
     },
-    [router]
+    [router],
   );
 
   const setSearchQuery = useCallback(
@@ -91,7 +91,7 @@ export const useProductFilters = (): UseProductFiltersReturn => {
 
       setDebounceTimer(timer);
     },
-    [debounceTimer, selectedCategory, sortBy, syncToUrl]
+    [debounceTimer, selectedCategory, sortBy, syncToUrl],
   );
 
   const setSelectedCategory = useCallback(
@@ -99,7 +99,7 @@ export const useProductFilters = (): UseProductFiltersReturn => {
       setSelectedCategoryState(category);
       syncToUrl(searchQuery, category, sortBy);
     },
-    [searchQuery, sortBy, syncToUrl]
+    [searchQuery, sortBy, syncToUrl],
   );
 
   const setSortBy = useCallback(
@@ -107,7 +107,7 @@ export const useProductFilters = (): UseProductFiltersReturn => {
       setSortByState(sort);
       syncToUrl(searchQuery, selectedCategory, sort);
     },
-    [searchQuery, selectedCategory, syncToUrl]
+    [searchQuery, selectedCategory, syncToUrl],
   );
 
   const clearFilters = useCallback(() => {

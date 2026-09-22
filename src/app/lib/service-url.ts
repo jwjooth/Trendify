@@ -13,8 +13,7 @@ export const PRODUCTS_URL =
 export const CATEGORIES_URL =
   process.env.NEXT_PUBLIC_CATEGORIES_URL || `${BASE}/categories`;
 
-export const FAQS_URL =
-  process.env.NEXT_PUBLIC_FAQS_URL || `${BASE}/faqs`;
+export const FAQS_URL = process.env.NEXT_PUBLIC_FAQS_URL || `${BASE}/faqs`;
 
 export const TESTIMONIAL_URL =
   process.env.NEXT_PUBLIC_TESTIMONIALS_URL || `${BASE}/testimonials`;

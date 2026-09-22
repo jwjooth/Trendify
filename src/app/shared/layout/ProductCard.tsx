@@ -9,6 +9,7 @@ import { Card, CardContent, CardFooter } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { toast } from "sonner";
+import { ImageWithFallback } from "./ImageWithFallback";
 
 interface ProductCardProps {
   product: Product;
@@ -75,10 +76,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
           <CardContent className="p-4">
             <div className="aspect-square overflow-hidden rounded-lg mb-4 bg-gray-100 relative">
-              <img
+              <ImageWithFallback
                 src={product.imageUrl}
                 alt={product.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full group-hover:scale-110 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
 
               {/* Overlay with quick actions */}
@@ -170,10 +172,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
-              <img
+              <ImageWithFallback
                 src={product.imageUrl}
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 
@@ -219,7 +222,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                   <span className="text-muted-foreground">Stock:</span>
                   <span
                     className={
-                      (product.stock ?? 0) < 20 ? "text-orange-600 font-medium" : ""
+                      (product.stock ?? 0) < 20
+                        ? "text-orange-600 font-medium"
+                        : ""
                     }
                   >
                     {product.stock} available

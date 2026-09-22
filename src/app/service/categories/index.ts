@@ -34,9 +34,7 @@ export const putCategory = async (
   return res.data as Category;
 };
 
-export const deleteCategory = async (
-  id: number | string,
-): Promise<unknown> => {
+export const deleteCategory = async (id: number | string): Promise<unknown> => {
   const res = await api.delete<unknown>(`${CATEGORIES_URL}/${id}`);
   return res.data;
 };
