@@ -1,4 +1,9 @@
-import { calculateTax, calculateShipping, calculateTotal, formatCurrency } from "@/app/lib/currency";
+import {
+  calculateTax,
+  calculateShipping,
+  calculateTotal,
+  formatCurrency,
+} from "@/app/lib/currency";
 import type { Cart } from "@/app/service/type";
 
 interface CartSummaryProps {

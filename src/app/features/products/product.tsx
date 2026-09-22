@@ -16,6 +16,7 @@ import { Button } from "@/app/shared/ui/button";
 import { Badge } from "@/app/shared/ui/badge";
 import { Separator } from "@/app/shared/ui/separator";
 import { toast } from "sonner";
+import { ImageWithFallback } from "@/app/shared/layout/ImageWithFallback";
 
 const ProductDetailPage: NextPage = () => {
   const router = useRouter();
@@ -79,10 +80,11 @@ const ProductDetailPage: NextPage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
-          <img
+          <ImageWithFallback
             src={product.imageUrl}
             alt={product.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
 
@@ -144,7 +146,9 @@ const ProductDetailPage: NextPage = () => {
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-2">
               <span className="font-semibold">Stock:</span>
-              <Badge variant={(product.stock ?? 0) > 20 ? "default" : "destructive"}>
+              <Badge
+                variant={(product.stock ?? 0) > 20 ? "default" : "destructive"}
+              >
                 {product.stock} available
               </Badge>
             </div>

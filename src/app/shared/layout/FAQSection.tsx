@@ -104,8 +104,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Find quick answers to common questions. Can&apos;t find what you&apos;re looking
-          for? Contact our support team.
+          Find quick answers to common questions. Can&apos;t find what
+          you&apos;re looking for? Contact our support team.
         </p>
       </div>
 

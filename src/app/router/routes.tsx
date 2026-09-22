@@ -10,7 +10,6 @@ import { ProductsPage } from "../features/products/ProductsPage";
 import { NotFoundPage } from "../shared/layout/NotFoundPage";
 import { OrderConfirmationPage } from "../shared/layout/OrderConfirmationPage";
 
-
 export const routes: RouteObject[] = [
   {
     path: "/",

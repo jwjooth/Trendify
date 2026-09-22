@@ -5,17 +5,21 @@ import { Button } from "@/app/shared/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/shared/ui/card";
 import { Separator } from "@/app/shared/ui/separator";
 
+// Computed once at module load so renders stay pure (react-hooks/purity)
+const ORDER_DATE = new Date().toLocaleDateString();
+const ESTIMATED_DELIVERY_DATE = new Date(
+  Date.now() + 7 * 24 * 60 * 60 * 1000,
+).toLocaleDateString();
+
 const OrderConfirmationPage: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
   const mockOrder = {
     id: id || "ORD-1234567890",
-    date: new Date().toLocaleDateString(),
+    date: ORDER_DATE,
     total: "$199.99",
-    estimatedDelivery: new Date(
-      Date.now() + 7 * 24 * 60 * 60 * 1000,
-    ).toLocaleDateString(),
+    estimatedDelivery: ESTIMATED_DELIVERY_DATE,
     items: [
       { name: "Premium Wireless Headphones", quantity: 1, price: "$199.99" },
     ],

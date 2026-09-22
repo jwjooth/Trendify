@@ -150,7 +150,7 @@ export const AddressForm: React.FC<AddressFormProps> = memo(
         </CardContent>
       </>
     );
-  }
+  },
 );
 
 AddressForm.displayName = "AddressForm";

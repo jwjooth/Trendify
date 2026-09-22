@@ -19,9 +19,7 @@ export const getFaqsById = async (id: number | string): Promise<FAQ> => {
   return res.data as FAQ;
 };
 
-export const createFaq = async (
-  request: createFAQRequest,
-): Promise<FAQ> => {
+export const createFaq = async (request: createFAQRequest): Promise<FAQ> => {
   const res = await api.post<FAQ>(`${FAQS_URL}`, request);
   return res.data as FAQ;
 };

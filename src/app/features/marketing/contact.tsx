@@ -182,7 +182,9 @@ const ContactPage: NextPage = () => {
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">What&apos;s your return policy?</h3>
+              <h3 className="font-semibold mb-2">
+                What&apos;s your return policy?
+              </h3>
               <p className="text-muted-foreground">
                 We offer a 30-day money-back guarantee on all purchases. No
                 questions asked.

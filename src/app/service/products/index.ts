@@ -21,9 +21,7 @@ export const getAllProducts = async (
   return res.data ?? [];
 };
 
-export const getProductById = async (
-  id: number | string,
-): Promise<Product> => {
+export const getProductById = async (id: number | string): Promise<Product> => {
   const url = `${PRODUCTS_URL}/${id}`;
   const res = await api.get<Product>(url);
   return res.data as Product;
@@ -44,9 +42,7 @@ export const updateProduct = async (
   return res.data as Product;
 };
 
-export const deleteProduct = async (
-  id: number | string,
-): Promise<unknown> => {
+export const deleteProduct = async (id: number | string): Promise<unknown> => {
   const res = await api.delete<unknown>(`${PRODUCTS_URL}/${id}`);
   return res.data;
 };

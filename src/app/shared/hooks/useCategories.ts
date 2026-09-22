@@ -19,9 +19,8 @@ interface UseCategoriesReturn {
  * Includes error handling and caching
  */
 export const useCategories = (): UseCategoriesReturn => {
-  const [categories, setCategories] = useState<CategoryOption[]>(
-    DEFAULT_CATEGORIES
-  );
+  const [categories, setCategories] =
+    useState<CategoryOption[]>(DEFAULT_CATEGORIES);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -61,7 +60,11 @@ export const useCategories = (): UseCategoriesReturn => {
 
   // Load categories on mount
   useEffect(() => {
-    loadCategories();
+    const timer = setTimeout(() => {
+      loadCategories();
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [loadCategories]);
 
   return {

@@ -2,15 +2,11 @@ import React, { memo } from "react";
 import { CheckCircle, CreditCard, Lock, Shield, Truck } from "lucide-react";
 import { Badge } from "@/app/shared/ui/badge";
 import { Button } from "@/app/shared/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/app/shared/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/app/shared/ui/card";
 import { Separator } from "@/app/shared/ui/separator";
 import { useCart } from "@/app/features/cart/CartContext";
 import { formatCurrency } from "@/app/lib/currency";
+import { ImageWithFallback } from "@/app/shared/layout/ImageWithFallback";
 
 interface OrderSummaryProps {
   tax: number;
@@ -40,11 +36,10 @@ export const OrderSummary: React.FC<OrderSummaryProps> = memo(
                 key={item.product.id}
                 className="flex gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
               >
-                <img
+                <ImageWithFallback
                   src={item.product.imageUrl}
                   alt={item.product.name}
-                  className="w-12 h-12 object-cover rounded-md"
-                  loading="lazy"
+                  className="w-12 h-12 shrink-0 rounded-md"
                 />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium line-clamp-2">
@@ -67,7 +62,9 @@ export const OrderSummary: React.FC<OrderSummaryProps> = memo(
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-muted-foreground">Subtotal</span>
-              <span className="font-medium">{formatCurrency(cart.subtotal)}</span>
+              <span className="font-medium">
+                {formatCurrency(cart.subtotal)}
+              </span>
             </div>
 
             <div className="flex justify-between text-sm">
@@ -114,18 +111,26 @@ export const OrderSummary: React.FC<OrderSummaryProps> = memo(
           </div>
 
           {/* CTA */}
-          <Button type="submit" className="w-full" size="lg" disabled={isProcessing}>
+          <Button
+            type="submit"
+            className="w-full"
+            size="lg"
+            disabled={isProcessing}
+          >
             <CreditCard className="w-4 h-4 mr-2" />
-            {isProcessing ? "Processing Order..." : `Pay ${formatCurrency(total)}`}
+            {isProcessing
+              ? "Processing Order..."
+              : `Pay ${formatCurrency(total)}`}
           </Button>
 
           <p className="text-xs text-center text-muted-foreground">
-            By placing your order, you agree to our Terms of Service and Privacy Policy
+            By placing your order, you agree to our Terms of Service and Privacy
+            Policy
           </p>
         </CardContent>
       </Card>
     );
-  }
+  },
 );
 
 OrderSummary.displayName = "OrderSummary";

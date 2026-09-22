@@ -1,4 +1,3 @@
- 
 const nextVitals = require("eslint-config-next/core-web-vitals");
 const nextTs = require("eslint-config-next/typescript");
 
@@ -16,12 +15,21 @@ module.exports = [
     },
   },
   // react-hooks v7 experimental rules are overly strict for idiomatic
-  // data-fetching effects and shadcn/ui vendored components — warn only
+  // data-fetching effects — warn only
   {
     files: ["src/**/*.{ts,tsx}"],
     rules: {
       "react-hooks/set-state-in-effect": "warn",
       "react-hooks/purity": "warn",
+    },
+  },
+  // Vendored shadcn/ui — don't refactor for style; these two rules would
+  // otherwise fire on upstream embla hooks, skeleton placeholders, etc.
+  {
+    files: ["src/app/shared/ui/**/*.{ts,tsx}"],
+    rules: {
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/purity": "off",
     },
   },
 ];

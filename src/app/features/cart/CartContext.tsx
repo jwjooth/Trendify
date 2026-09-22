@@ -43,7 +43,7 @@ const WISHLIST_STORAGE_KEY = "ecommerce-wishlist";
 
 const validateStoredCart = (data: unknown): Cart | null => {
   try {
-    if (!data || typeof data !== "object") return null
+    if (!data || typeof data !== "object") return null;
 
     const cart = data as Record<string, unknown>;
 
@@ -101,7 +101,7 @@ const validateStoredCart = (data: unknown): Cart | null => {
 
 const validateStoredWishlist = (data: unknown): Product[] => {
   try {
-    if (!Array.isArray(data)) return []
+    if (!Array.isArray(data)) return [];
 
     return data.filter((item) => {
       try {

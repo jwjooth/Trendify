@@ -68,10 +68,7 @@ export const ProductFilters = ({
         </SelectContent>
       </Select>
 
-      <Select
-        value={sort}
-        onValueChange={(v) => setSort(v as SortOption)}
-      >
+      <Select value={sort} onValueChange={(v) => setSort(v as SortOption)}>
         <SelectTrigger className="w-full md:w-48">
           <SelectValue placeholder="Sort by" />
         </SelectTrigger>

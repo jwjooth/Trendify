@@ -16,7 +16,7 @@ export const useNavigation = () => {
       query: router.query,
       asPath: router.asPath,
     });
-  }, [router.pathname, router.asPath]);
+  }, [router.pathname, router.query, router.asPath]);
 
   const navigateTo = useCallback(
     (path: string, options?: NavigateOptions) => {

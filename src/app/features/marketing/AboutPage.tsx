@@ -39,7 +39,11 @@ export const AboutPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    loadTestimonials();
+    const timer = setTimeout(() => {
+      loadTestimonials();
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [loadTestimonials]);
 
   return (
